@@ -19,5 +19,5 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Parametres" />
     </group>
-    
+
 </menu>

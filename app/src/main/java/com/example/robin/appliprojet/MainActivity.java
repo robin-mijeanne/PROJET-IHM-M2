@@ -1,5 +1,6 @@
 package com.example.robin.appliprojet;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -85,7 +86,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.achats) {
 
         } else if (id == R.id.favoris) {
-
+            Intent i = new Intent(MainActivity.this, FavorisListe.class);
+            startActivity(i);
         } else if (id == R.id.parametres) {
 
         }
