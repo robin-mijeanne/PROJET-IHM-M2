@@ -21,6 +21,10 @@
         <activity
             android:name=".FavorisListe"
             android:label="@string/title_activity_favoris_liste"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AchatsListe"
+            android:label="@string/title_activity_achats_liste"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
