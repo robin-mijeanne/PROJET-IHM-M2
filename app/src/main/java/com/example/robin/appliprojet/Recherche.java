@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -52,14 +53,14 @@ public class Recherche extends AppCompatActivity {
         final Button bt1 = (Button) findViewById(R.id.button);
         bt1.setEnabled(true);
 
+        final EditText saisie = (EditText) findViewById(R.id.editText2);
 
         bt1.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view) {
-                startActivity(ResultRecherche.newIntent("jean michel", monSpinner.getSelectedItem().toString(), bt1.getContext()));
+                startActivity(ResultRecherche.newIntent(saisie.getText().toString(), monSpinner.getSelectedItem().toString(), bt1.getContext()));
             }
         });
-
     }
 }

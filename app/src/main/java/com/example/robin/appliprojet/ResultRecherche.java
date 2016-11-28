@@ -9,7 +9,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import com.example.robin.appliprojet.casee.*;
 
 import java.util.ArrayList;
@@ -20,11 +23,13 @@ public class ResultRecherche extends AppCompatActivity implements OnCaseClickLis
     ListView myListView;
     private static final String KEY_RECHERCHE = "album_cover";
     private static final String KEY_TYPE = "album_name";
+    private static final String KEY_AFFICHAGE = "affichage";
 
     public static Intent newIntent(String recherche, String type, Context context){
         Intent i = new Intent(context, ResultRecherche.class);
         i.putExtra(KEY_RECHERCHE, recherche);
         i.putExtra (KEY_TYPE, type);
+        i.putExtra(KEY_AFFICHAGE,(type.equals("Concert")) ? "Concert: "+recherche : "Salle: " + recherche);
         return i;
     }
 
@@ -44,10 +49,13 @@ public class ResultRecherche extends AppCompatActivity implements OnCaseClickLis
             }
         });
 
+        Intent i = getIntent();
         myListView= (ListView) findViewById(R.id.list);
         List<Case> mesCases= genererCases();
         CaseAdapter adapter= new CaseAdapter(ResultRecherche.this, mesCases, this);
         myListView.setAdapter(adapter);
+
+        ((TextView) findViewById(R.id.textView6)).setText(i.getStringExtra(KEY_AFFICHAGE.toString()));
 
     }
 
