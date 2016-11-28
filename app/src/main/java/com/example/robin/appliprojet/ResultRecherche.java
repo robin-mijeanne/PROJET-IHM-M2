@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.robin.appliprojet.casee.*;
+import com.example.robin.appliprojet.data.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class ResultRecherche extends AppCompatActivity implements OnCaseClickLis
         Intent i = new Intent(context, ResultRecherche.class);
         i.putExtra(KEY_RECHERCHE, recherche);
         i.putExtra (KEY_TYPE, type);
-        i.putExtra(KEY_AFFICHAGE,(type.equals("Concert")) ? "Concert: "+recherche : "Salle: " + recherche);
+        i.putExtra(KEY_AFFICHAGE,(type.equals("Concert")) ? "Concert: "+recherche : "Salle: "+ recherche);
         return i;
     }
 
@@ -50,25 +51,13 @@ public class ResultRecherche extends AppCompatActivity implements OnCaseClickLis
         });
 
         Intent i = getIntent();
-        myListView= (ListView) findViewById(R.id.list);
-        List<Case> mesCases= genererCases();
-        CaseAdapter adapter= new CaseAdapter(ResultRecherche.this, mesCases, this);
+        myListView = (ListView) findViewById(R.id.list);
+        List<Case> mesCases = new Base().getArtistes();
+        CaseAdapter adapter = new CaseAdapter(ResultRecherche.this, mesCases, this);
         myListView.setAdapter(adapter);
 
         ((TextView) findViewById(R.id.textView6)).setText(i.getStringExtra(KEY_AFFICHAGE.toString()));
 
-    }
-
-    private List<Case> genererCases()
-    {
-        List<Case> cases= new ArrayList<Case>();
-
-        cases.add(new Case(R.drawable.yvettehorner, "Yvette Horner", "J\'adrore l\'accordeon"));
-        cases.add(new Case(R.drawable.didiersuper, "Didier Super", "BouleyLand"));
-        cases.add(new Case(R.drawable.jeanpaulandre, "Jean Paul Andre", "Golfech magazine"));
-        cases.add(new Case(R.drawable.mlp, "M.L.P", "BrownieLand"));
-
-        return cases;
     }
 
     @Override
