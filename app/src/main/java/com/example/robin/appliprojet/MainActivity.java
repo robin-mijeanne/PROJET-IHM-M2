@@ -92,7 +92,8 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, FavorisListe.class);
             startActivity(i);
         } else if (id == R.id.parametres) {
-
+            Intent i = new Intent(MainActivity.this, Parametres.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
