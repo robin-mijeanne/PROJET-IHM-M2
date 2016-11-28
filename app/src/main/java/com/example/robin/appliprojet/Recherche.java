@@ -7,11 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.example.robin.appliprojet.casee.OnCaseClickListener;
 
 public class Recherche extends AppCompatActivity {
 
@@ -46,5 +48,18 @@ public class Recherche extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         monSpinner.setAdapter(adapter);
+
+        final Button bt1 = (Button) findViewById(R.id.button);
+        bt1.setEnabled(true);
+
+
+        bt1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                startActivity(ResultRecherche.newIntent("jean michel", monSpinner.getSelectedItem().toString(), bt1.getContext()));
+            }
+        });
+
     }
 }

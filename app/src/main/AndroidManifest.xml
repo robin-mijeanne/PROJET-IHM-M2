@@ -33,6 +33,10 @@
         <activity
             android:name=".Parametres"
             android:label="@string/title_activity_parametres"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ResultRecherche"
+            android:label="@string/title_activity_result_recherche"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

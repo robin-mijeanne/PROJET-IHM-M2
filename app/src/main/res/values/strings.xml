@@ -9,4 +9,5 @@
     <string name="title_activity_achats_liste">AchatsListe</string>
     <string name="title_activity_recherche">Recherche</string>
     <string name="title_activity_parametres">Parametres</string>
+    <string name="title_activity_result_recherche">ResultRecherche</string>
 </resources>
