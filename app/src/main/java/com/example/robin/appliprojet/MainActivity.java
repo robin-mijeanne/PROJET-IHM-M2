@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.recherche) {
-
+            Intent i = new Intent(MainActivity.this, Recherche.class);
+            startActivity(i);
         } else if (id == R.id.achats) {
             Intent i = new Intent(MainActivity.this, AchatsListe.class);
             startActivity(i);
