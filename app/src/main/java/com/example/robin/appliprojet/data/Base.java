@@ -58,6 +58,8 @@ public class Base {
         salles.add(new Case(R.drawable.dynamo, "La Dynamo", "Toulouse", description, liste_avis));
         salles.add(new Case(R.drawable.lephare, "Le Phare", "Toulouse", description, liste_avis));
 
+        favoris.add(new Case(R.drawable.didiersuper, "Didier Super", "BouleyLand", description));
+        favoris.add(new Case(R.drawable.jeanpaulandre, "Jean Paul Andre", "Golfech magazine", description));
     }
 
     public List<Case> getArtistes()

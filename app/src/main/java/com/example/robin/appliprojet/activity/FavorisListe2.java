@@ -19,12 +19,20 @@ import android.widget.ListView;
 import com.example.robin.appliprojet.FavorisListe;
 import com.example.robin.appliprojet.R;
 import com.example.robin.appliprojet.Recherche;
+import com.example.robin.appliprojet.casee.Case;
+import com.example.robin.appliprojet.casee.CaseAdapter;
+import com.example.robin.appliprojet.casee.OnCaseClickListener;
+import com.example.robin.appliprojet.data.Base;
+
+import java.util.List;
+
+import static android.R.attr.type;
 
 public class FavorisListe2 extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, OnCaseClickListener {
 
     String[] noms_onglets= new String[] {"ABC", "DEF", "GHI"};
-
+    ListView myListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +60,14 @@ public class FavorisListe2 extends AppCompatActivity
 
         this.setTitle("Mes Favoris");
 
-        ListView listview= (ListView) findViewById(R.id.list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noms_onglets);
-        listview.setAdapter(adapter);
+        //ListView listview= (ListView) findViewById(R.id.list);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noms_onglets);
+        //listview.setAdapter(adapter);
+
+        myListView = (ListView) findViewById(R.id.list);
+        List<Case> mesCases= new Base().getFavoris();
+        CaseAdapter adapter = new CaseAdapter(FavorisListe2.this, mesCases, this);
+        myListView.setAdapter(adapter);
     }
 
     @Override
@@ -114,5 +127,10 @@ public class FavorisListe2 extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onCaseClick(Case ma_case)
+    {
+        startActivity(DetailArtiste.newIntent(ma_case, this));
     }
 }
