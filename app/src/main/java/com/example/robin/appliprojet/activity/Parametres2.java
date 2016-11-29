@@ -96,7 +96,7 @@ public class Parametres2 extends AppCompatActivity
             Intent i = new Intent(Parametres2.this, Recherche.class);
             startActivity(i);
         } else if (id == R.id.achats) {
-            Intent i = new Intent(Parametres2.this, AchatsListe.class);
+            Intent i = new Intent(Parametres2.this, AchatsListe2.class);
             startActivity(i);
 
         } else if (id == R.id.favoris) {

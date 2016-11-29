@@ -1,5 +1,6 @@
 package com.example.robin.appliprojet.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,9 +13,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.example.robin.appliprojet.AchatsListe;
+import com.example.robin.appliprojet.FavorisListe;
+import com.example.robin.appliprojet.MainActivity;
+import com.example.robin.appliprojet.R;
+import com.example.robin.appliprojet.Recherche;
 
 public class AchatsListe2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    String[] noms_onglets= new String[] {"ABC", "DEF", "GHI"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +51,12 @@ public class AchatsListe2 extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        ListView listview= (ListView) findViewById(R.id.list);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noms_onglets);
+        listview.setAdapter(adapter);
+
+        this.setTitle("Mes Achats");
     }
 
     @Override
@@ -80,17 +97,19 @@ public class AchatsListe2 extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.recherche) {
+            Intent i = new Intent(AchatsListe2.this, Recherche.class);
+            startActivity(i);
+        } else if (id == R.id.achats) {
+            Intent i = new Intent(AchatsListe2.this, AchatsListe2.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.favoris) {
+            Intent i = new Intent(AchatsListe2.this, FavorisListe.class);
+            startActivity(i);
+        } else if (id == R.id.parametres) {
+            Intent i = new Intent(AchatsListe2.this, Parametres2.class);
+            startActivity(i);
 
         }
 

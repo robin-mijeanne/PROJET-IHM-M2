@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.robin.appliprojet.activity.AchatsListe2;
 import com.example.robin.appliprojet.activity.Parametres2;
 
 
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, Recherche.class);
             startActivity(i);
         } else if (id == R.id.achats) {
-            Intent i = new Intent(MainActivity.this, AchatsListe.class);
+            Intent i = new Intent(MainActivity.this, AchatsListe2.class);
             startActivity(i);
 
         } else if (id == R.id.favoris) {
