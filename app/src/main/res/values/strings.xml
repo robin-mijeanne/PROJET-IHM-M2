@@ -10,4 +10,6 @@
     <string name="title_activity_recherche">Recherche</string>
     <string name="title_activity_parametres">Parametres</string>
     <string name="title_activity_result_recherche">ResultRecherche</string>
+    <string name="title_activity_parametres2">parametres2</string>
+    <string name="title_activity_achats_liste2">AchatsListe2</string>
 </resources>

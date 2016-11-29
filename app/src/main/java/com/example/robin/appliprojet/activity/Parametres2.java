@@ -1,4 +1,4 @@
-package com.example.robin.appliprojet;
+package com.example.robin.appliprojet.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,17 +13,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
-import com.example.robin.appliprojet.activity.Parametres2;
+import com.example.robin.appliprojet.AchatsListe;
+import com.example.robin.appliprojet.FavorisListe;
+import com.example.robin.appliprojet.MainActivity;
+import com.example.robin.appliprojet.R;
+import com.example.robin.appliprojet.Recherche;
 
-
-public class MainActivity extends AppCompatActivity
+public class Parametres2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_parametres2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,7 +49,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        this.setTitle("Appli Spectacles");
+        ((ImageView) findViewById(R.id.img)).setImageResource(R.drawable.trollface);
+
+        this.setTitle("Parametres");
     }
 
     @Override
@@ -61,7 +67,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.parametres2, menu);
         return true;
     }
 
@@ -87,17 +93,17 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.recherche) {
-            Intent i = new Intent(MainActivity.this, Recherche.class);
+            Intent i = new Intent(Parametres2.this, Recherche.class);
             startActivity(i);
         } else if (id == R.id.achats) {
-            Intent i = new Intent(MainActivity.this, AchatsListe.class);
+            Intent i = new Intent(Parametres2.this, AchatsListe.class);
             startActivity(i);
 
         } else if (id == R.id.favoris) {
-            Intent i = new Intent(MainActivity.this, FavorisListe.class);
+            Intent i = new Intent(Parametres2.this, FavorisListe.class);
             startActivity(i);
         } else if (id == R.id.parametres) {
-            Intent i = new Intent(MainActivity.this, Parametres2.class);
+            Intent i = new Intent(Parametres2.this, Parametres2.class);
             startActivity(i);
 
         }
