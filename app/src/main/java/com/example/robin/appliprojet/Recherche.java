@@ -14,6 +14,8 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.robin.appliprojet.activity.ResultRecherche2;
 import com.example.robin.appliprojet.casee.OnCaseClickListener;
 
 public class Recherche extends AppCompatActivity {

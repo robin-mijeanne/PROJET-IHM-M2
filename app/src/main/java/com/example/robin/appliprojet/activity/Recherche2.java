@@ -17,12 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-
-import com.example.robin.appliprojet.MainActivity;
 import com.example.robin.appliprojet.R;
-import com.example.robin.appliprojet.Recherche;
-import com.example.robin.appliprojet.ResultRecherche;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,7 +76,7 @@ public class Recherche2 extends AppCompatActivity
         {
             @Override
             public void onClick(View view) {
-                startActivity(ResultRecherche.newIntent(saisie.getText().toString(), monSpinner.getSelectedItem().toString(), bt1.getContext()));
+                startActivity(ResultRecherche2.newIntent(saisie.getText().toString(), monSpinner.getSelectedItem().toString(), bt1.getContext()));
             }
         });
     }

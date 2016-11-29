@@ -1,5 +1,7 @@
 package com.example.robin.appliprojet.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,10 +14,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.TextView;
 
-public class ResultRecherche2 extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import com.example.robin.appliprojet.MainActivity;
+import com.example.robin.appliprojet.R;
+import com.example.robin.appliprojet.ResultRecherche;
+import com.example.robin.appliprojet.casee.Case;
+import com.example.robin.appliprojet.casee.CaseAdapter;
+import com.example.robin.appliprojet.casee.OnCaseClickListener;
+import com.example.robin.appliprojet.data.Base;
 
+import java.util.List;
+
+public class ResultRecherche2 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnCaseClickListener {
+
+    ListView myListView;
+    private static final String KEY_RECHERCHE = "album_cover";
+    private static final String KEY_TYPE = "album_name";
+    private static final String KEY_AFFICHAGE = "affichage";
+
+
+    public static Intent newIntent(String recherche, String type, Context context){
+        Intent i = new Intent(context, ResultRecherche2.class);
+        i.putExtra(KEY_RECHERCHE, recherche);
+        i.putExtra (KEY_TYPE, type);
+        i.putExtra(KEY_AFFICHAGE,(type.equals("Concert")) ? "Concert: "+recherche : "Salle: "+ recherche);;
+        return i;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +66,27 @@ public class ResultRecherche2 extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Intent i = getIntent();
+        String type= new String(i.getStringExtra(KEY_TYPE.toString()));
+        type=type.toLowerCase();
+
+        this.setTitle("Recherche "+type+"s");
+
+        myListView = (ListView) findViewById(R.id.list);
+        List<Case> mesCases;
+        if (type.equals("concert"))
+        {
+            mesCases = new Base().getArtistes();
+        }
+        else
+        {
+            mesCases = new Base().getSalles();
+        }
+        CaseAdapter adapter = new CaseAdapter(ResultRecherche2.this, mesCases, this);
+        myListView.setAdapter(adapter);
+
+        ((TextView) findViewById(R.id.textView6)).setText(i.getStringExtra(KEY_AFFICHAGE.toString()));
     }
 
     @Override
@@ -80,22 +127,30 @@ public class ResultRecherche2 extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.recherche) {
+            Intent i = new Intent(ResultRecherche2.this, Recherche2.class);
+            startActivity(i);
+        } else if (id == R.id.achats) {
+            Intent i = new Intent(ResultRecherche2.this, AchatsListe2.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.favoris) {
+            Intent i = new Intent(ResultRecherche2.this, FavorisListe2.class);
+            startActivity(i);
+        } else if (id == R.id.parametres) {
+            Intent i = new Intent(ResultRecherche2.this, Parametres2.class);
+            startActivity(i);
 
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    public void onCaseClick(Case ma_case) {
+        //startActivity(DetailActivity.newIntent(ma_case, this));
     }
 }

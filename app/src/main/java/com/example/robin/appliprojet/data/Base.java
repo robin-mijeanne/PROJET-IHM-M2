@@ -37,6 +37,13 @@ public class Base {
         artistes.add(new Case(R.drawable.didiersuper, "Didier Super", "BouleyLand"));
         artistes.add(new Case(R.drawable.jeanpaulandre, "Jean Paul Andre", "Golfech magazine"));
         artistes.add(new Case(R.drawable.mlp, "M.L.P", "BrownieLand"));
+
+        String description = new String("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+
+        salles.add(new Case(R.drawable.bikini, "Le Bikini", "Ramonville Saint Agne", description));
+        salles.add(new Case(R.drawable.dynamo, "La Dynamo", "Toulouse", description));
+        salles.add(new Case(R.drawable.lephare, "Le Phare", "Toulouse", description));
+
     }
 
     public List<Case> getArtistes()
