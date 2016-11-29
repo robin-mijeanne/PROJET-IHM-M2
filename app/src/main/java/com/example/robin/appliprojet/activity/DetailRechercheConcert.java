@@ -76,6 +76,7 @@ public class DetailRechercheConcert extends AppCompatActivity
         this.setTitle(ma_case.getNom());
         ((ImageView) findViewById(R.id.img)).setImageResource(ma_case.getImage());
         ((TextView) findViewById(R.id.textView8)).setText(ma_case.getDescription());
+        ((TextView) findViewById(R.id.textView9)).setText(Integer.toString(ma_case.getPrix())+" €");
 
         bt4.setOnClickListener(new View.OnClickListener()
         {

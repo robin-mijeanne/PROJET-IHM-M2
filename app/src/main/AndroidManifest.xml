@@ -69,6 +69,10 @@
         <activity
             android:name=".activity.DetailRechercheConcert"
             android:label="@string/title_activity_detail_recherche_concert"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.ConfirmationAchat"
+            android:label="@string/title_activity_confirmation_achat"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

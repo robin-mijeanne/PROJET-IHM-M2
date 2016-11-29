@@ -61,6 +61,16 @@
         android:layout_alignParentEnd="true"
         android:layout_marginRight="26dp"
         android:layout_marginEnd="26dp" />
+
+    <TextView
+        android:text="TextView"
+        android:textSize="40dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9"
+        android:layout_above="@+id/button3"
+        android:layout_centerHorizontal="true" />
     /
 
 </RelativeLayout>

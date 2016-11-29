@@ -11,6 +11,7 @@ public class Case {
     private int image;
     private String nom;
     private String text;
+    private int prix;
     private String description;
     private List<String> avis;
 
@@ -26,6 +27,15 @@ public class Case {
         this.nom = nom;
         this.text = text;
         this.description= description;
+        this.avis= new ArrayList<String>();
+    }
+
+    public Case(int image, String nom, String text, String description, int prix) {
+        this.image = image;
+        this.nom = nom;
+        this.text = text;
+        this.description= description;
+        this.prix=prix;
         this.avis= new ArrayList<String>();
     }
 
@@ -56,6 +66,10 @@ public class Case {
         return description;
     }
 
+    public int getPrix() {
+        return prix;
+    }
+
     public void setImage(int color) {
         this.image = image;
     }
@@ -73,4 +87,8 @@ public class Case {
     }
 
     public void setAvis(List<String> avis) {this.avis = avis;}
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
 }

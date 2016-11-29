@@ -48,10 +48,10 @@ public class Base {
         artistes.add(new Case(R.drawable.jeanpaulandre, "Jean Paul Andre", "Golfech magazine", description));
         artistes.add(new Case(R.drawable.mlp, "M.L.P", "BrownieLand", description));
 
-        concerts.add(new Case(R.drawable.yvettehorner, "Yvette Horner", "Le Bikini", description));
-        concerts.add(new Case(R.drawable.didiersuper, "Didier Super", "La Dynamo", description));
-        concerts.add(new Case(R.drawable.jeanpaulandre, "Jean Paul Andre", "Le Phare", description));
-        concerts.add(new Case(R.drawable.mlp, "M.L.P", "Le Bikini", description));
+        concerts.add(new Case(R.drawable.yvettehorner, "Yvette Horner", "Le Bikini", description, 45));
+        concerts.add(new Case(R.drawable.didiersuper, "Didier Super", "La Dynamo", description, 30));
+        concerts.add(new Case(R.drawable.jeanpaulandre, "Jean Paul Andre", "Le Phare", description, 35));
+        concerts.add(new Case(R.drawable.mlp, "M.L.P", "Le Bikini", description, 10));
 
 
         salles.add(new Case(R.drawable.bikini, "Le Bikini", "Ramonville Saint Agne", description, liste_avis));
