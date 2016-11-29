@@ -60,6 +60,7 @@ public class Recherche2 extends AppCompatActivity
         List spinnerList = new ArrayList();
         spinnerList.add("Concert");
         spinnerList.add("Salle");
+        spinnerList.add("Artiste");
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerList);
 

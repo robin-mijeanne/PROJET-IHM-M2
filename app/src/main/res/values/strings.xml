@@ -17,4 +17,5 @@
     <string name="title_activity_result_recherche2">ResultRecherche2</string>
     <string name="title_activity_detail_salle">DetailSalle</string>
     <string name="title_activity_detail_artiste">DetailArtiste</string>
+    <string name="title_activity_detail_recherche_concert">DetailRechercheConcert</string>
 </resources>

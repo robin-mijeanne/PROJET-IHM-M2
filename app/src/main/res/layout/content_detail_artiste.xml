@@ -13,4 +13,29 @@
     tools:context="com.example.robin.appliprojet.activity.DetailArtiste"
     tools:showIn="@layout/app_bar_detail_artiste">
 
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView8" />
+
+    <Button
+        android:text="Ajouter aux favoris"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/textView8"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

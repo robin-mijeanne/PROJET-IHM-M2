@@ -39,7 +39,7 @@ public class ResultRecherche2 extends AppCompatActivity implements NavigationVie
         Intent i = new Intent(context, ResultRecherche2.class);
         i.putExtra(KEY_RECHERCHE, recherche);
         i.putExtra (KEY_TYPE, type);
-        i.putExtra(KEY_AFFICHAGE,(type.equals("Concert")) ? "Concert: "+recherche : "Salle: "+ recherche);;
+        i.putExtra(KEY_AFFICHAGE,("Mots clés: "+recherche));;
         return i;
     }
     @Override
@@ -81,7 +81,14 @@ public class ResultRecherche2 extends AppCompatActivity implements NavigationVie
         }
         else
         {
-            mesCases = new Base().getSalles();
+            if (type.equals("salle"))
+            {
+                mesCases = new Base().getSalles();
+            }
+            else
+            {
+                mesCases= new Base().getArtistes();
+            }
         }
         CaseAdapter adapter = new CaseAdapter(ResultRecherche2.this, mesCases, this);
         myListView.setAdapter(adapter);
@@ -152,13 +159,20 @@ public class ResultRecherche2 extends AppCompatActivity implements NavigationVie
 
     public void onCaseClick(Case ma_case) {
         Intent i = getIntent();
-        if (i.getStringExtra(KEY_TYPE.toString()).equals("concert"))
+        if (i.getStringExtra(KEY_TYPE.toString()).toLowerCase().equals("concert"))
         {
 
         }
         else
         {
-            startActivity(DetailSalle.newIntent(ma_case, this));
+            if (i.getStringExtra(KEY_TYPE.toString()).toLowerCase().equals("artiste"))
+            {
+                startActivity(DetailArtiste.newIntent(ma_case, this));
+            }
+            else
+            {
+                startActivity(DetailSalle.newIntent(ma_case, this));
+            }
         }
     }
 }

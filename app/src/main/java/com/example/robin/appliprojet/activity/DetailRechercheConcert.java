@@ -1,7 +1,5 @@
 package com.example.robin.appliprojet.activity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,32 +12,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.animation.Interpolator;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.robin.appliprojet.R;
-import com.example.robin.appliprojet.casee.Case;
-import com.example.robin.appliprojet.data.Base;
-
-public class DetailArtiste extends AppCompatActivity
+public class DetailRechercheConcert extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    private static final String KEY_NOM = "album_cover";
-    private static final String KEY_LIEU = "album_name";
-
-
-    public static Intent newIntent(Case ma_case, Context context){
-        Intent i = new Intent(context, DetailArtiste.class);
-        i.putExtra(KEY_NOM, ma_case.getNom());
-        i.putExtra(KEY_LIEU, ma_case.getText());
-        return i;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_artiste);
+        setContentView(R.layout.activity_detail_recherche_concert);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -60,14 +40,6 @@ public class DetailArtiste extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        Intent i = getIntent();
-        Base base = new Base();
-        Case ma_case= base.rechercheArtiste(i.getStringExtra(KEY_NOM.toString()));
-
-        this.setTitle(ma_case.getNom());
-        ((ImageView) findViewById(R.id.img)).setImageResource(ma_case.getImage());
-        ((TextView) findViewById(R.id.textView8)).setText(ma_case.getDescription());
     }
 
     @Override
@@ -83,7 +55,7 @@ public class DetailArtiste extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.detail_artiste, menu);
+        getMenuInflater().inflate(R.menu.detail_recherche_concert, menu);
         return true;
     }
 
@@ -108,19 +80,18 @@ public class DetailArtiste extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.recherche) {
-            Intent i = new Intent(DetailArtiste.this, Recherche2.class);
-            startActivity(i);
-        } else if (id == R.id.achats) {
-            Intent i = new Intent(DetailArtiste.this, AchatsListe2.class);
-            startActivity(i);
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.favoris) {
-            Intent i = new Intent(DetailArtiste.this, FavorisListe2.class);
-            startActivity(i);
-        } else if (id == R.id.parametres) {
-            Intent i = new Intent(DetailArtiste.this, Parametres2.class);
-            startActivity(i);
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
