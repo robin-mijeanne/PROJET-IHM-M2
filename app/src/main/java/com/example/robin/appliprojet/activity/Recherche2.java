@@ -14,21 +14,27 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
-import com.example.robin.appliprojet.FavorisListe;
+import com.example.robin.appliprojet.MainActivity;
 import com.example.robin.appliprojet.R;
 import com.example.robin.appliprojet.Recherche;
+import com.example.robin.appliprojet.ResultRecherche;
 
-public class AchatsListe2 extends AppCompatActivity
+import java.util.ArrayList;
+import java.util.List;
+
+public class Recherche2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    String[] noms_onglets= new String[] {"ABC", "DEF", "GHI"};
+    Spinner monSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_achats_liste2);
+        setContentView(R.layout.activity_recherche2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -50,11 +56,34 @@ public class AchatsListe2 extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ListView listview= (ListView) findViewById(R.id.list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noms_onglets);
-        listview.setAdapter(adapter);
+        this.setTitle("Recherche");
 
-        this.setTitle("Mes Achats");
+        //Récupération du Spinner déclaré dans le fichier main.xml de res/layout
+        monSpinner = (Spinner) findViewById(R.id.spinner);
+
+        //Création d'une liste d'élément à mettre dans le Spinner(pour l'exemple)
+        List spinnerList = new ArrayList();
+        spinnerList.add("Concert");
+        spinnerList.add("Salle");
+
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerList);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        monSpinner.setAdapter(adapter);
+
+        final Button bt1 = (Button) findViewById(R.id.button);
+        bt1.setEnabled(true);
+
+        final EditText saisie = (EditText) findViewById(R.id.editText2);
+
+        bt1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                startActivity(ResultRecherche.newIntent(saisie.getText().toString(), monSpinner.getSelectedItem().toString(), bt1.getContext()));
+            }
+        });
     }
 
     @Override
@@ -70,7 +99,7 @@ public class AchatsListe2 extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.achats_liste2, menu);
+        getMenuInflater().inflate(R.menu.recherche2, menu);
         return true;
     }
 
@@ -96,17 +125,17 @@ public class AchatsListe2 extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.recherche) {
-            Intent i = new Intent(AchatsListe2.this, Recherche2.class);
+            Intent i = new Intent(Recherche2.this, Recherche2.class);
             startActivity(i);
         } else if (id == R.id.achats) {
-            Intent i = new Intent(AchatsListe2.this, AchatsListe2.class);
+            Intent i = new Intent(Recherche2.this, AchatsListe2.class);
             startActivity(i);
 
         } else if (id == R.id.favoris) {
-            Intent i = new Intent(AchatsListe2.this, FavorisListe2.class);
+            Intent i = new Intent(Recherche2.this, FavorisListe2.class);
             startActivity(i);
         } else if (id == R.id.parametres) {
-            Intent i = new Intent(AchatsListe2.this, Parametres2.class);
+            Intent i = new Intent(Recherche2.this, Parametres2.class);
             startActivity(i);
 
         }

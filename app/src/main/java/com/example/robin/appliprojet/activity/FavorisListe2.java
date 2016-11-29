@@ -96,7 +96,7 @@ public class FavorisListe2 extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.recherche) {
-            Intent i = new Intent(FavorisListe2.this, Recherche.class);
+            Intent i = new Intent(FavorisListe2.this, Recherche2.class);
             startActivity(i);
         } else if (id == R.id.achats) {
             Intent i = new Intent(FavorisListe2.this, AchatsListe2.class);

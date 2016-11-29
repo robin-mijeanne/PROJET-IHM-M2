@@ -49,6 +49,14 @@
         <activity
             android:name=".activity.FavorisListe2"
             android:label="@string/title_activity_favoris_liste2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.Recherche2"
+            android:label="@string/title_activity_recherche2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.ResultRecherche2"
+            android:label="@string/title_activity_result_recherche2"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import com.example.robin.appliprojet.activity.AchatsListe2;
 import com.example.robin.appliprojet.activity.FavorisListe2;
 import com.example.robin.appliprojet.activity.Parametres2;
+import com.example.robin.appliprojet.activity.Recherche2;
 
 
 public class MainActivity extends AppCompatActivity
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.recherche) {
-            Intent i = new Intent(MainActivity.this, Recherche.class);
+            Intent i = new Intent(MainActivity.this, Recherche2.class);
             startActivity(i);
         } else if (id == R.id.achats) {
             Intent i = new Intent(MainActivity.this, AchatsListe2.class);
