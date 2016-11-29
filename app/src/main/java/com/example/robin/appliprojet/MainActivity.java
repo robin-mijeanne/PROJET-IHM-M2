@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -92,8 +93,9 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, FavorisListe.class);
             startActivity(i);
         } else if (id == R.id.parametres) {
-            Intent i = new Intent(MainActivity.this, Parametres.class);
-            startActivity(i);
+//            Intent i = new Intent(MainActivity.this, Parametres.class);
+//            startActivity(i);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
