@@ -12,4 +12,5 @@
     <string name="title_activity_result_recherche">ResultRecherche</string>
     <string name="title_activity_parametres2">parametres2</string>
     <string name="title_activity_achats_liste2">AchatsListe2</string>
+    <string name="title_activity_favoris_liste2">FavorisListe2</string>
 </resources>

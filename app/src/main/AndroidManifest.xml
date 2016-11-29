@@ -45,6 +45,10 @@
         <activity
             android:name=".activity.AchatsListe2"
             android:label="@string/title_activity_achats_liste2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.FavorisListe2"
+            android:label="@string/title_activity_favoris_liste2"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

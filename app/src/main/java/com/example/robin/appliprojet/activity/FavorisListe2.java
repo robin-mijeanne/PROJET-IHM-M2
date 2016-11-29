@@ -20,7 +20,7 @@ import com.example.robin.appliprojet.FavorisListe;
 import com.example.robin.appliprojet.R;
 import com.example.robin.appliprojet.Recherche;
 
-public class AchatsListe2 extends AppCompatActivity
+public class FavorisListe2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     String[] noms_onglets= new String[] {"ABC", "DEF", "GHI"};
@@ -28,7 +28,7 @@ public class AchatsListe2 extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_achats_liste2);
+        setContentView(R.layout.activity_favoris_liste2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -50,11 +50,11 @@ public class AchatsListe2 extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        this.setTitle("Mes Favoris");
+
         ListView listview= (ListView) findViewById(R.id.list);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noms_onglets);
         listview.setAdapter(adapter);
-
-        this.setTitle("Mes Achats");
     }
 
     @Override
@@ -70,7 +70,7 @@ public class AchatsListe2 extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.achats_liste2, menu);
+        getMenuInflater().inflate(R.menu.favoris_liste2, menu);
         return true;
     }
 
@@ -96,17 +96,17 @@ public class AchatsListe2 extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.recherche) {
-            Intent i = new Intent(AchatsListe2.this, Recherche.class);
+            Intent i = new Intent(FavorisListe2.this, Recherche.class);
             startActivity(i);
         } else if (id == R.id.achats) {
-            Intent i = new Intent(AchatsListe2.this, AchatsListe2.class);
+            Intent i = new Intent(FavorisListe2.this, AchatsListe2.class);
             startActivity(i);
 
         } else if (id == R.id.favoris) {
-            Intent i = new Intent(AchatsListe2.this, FavorisListe2.class);
+            Intent i = new Intent(FavorisListe2.this, FavorisListe2.class);
             startActivity(i);
         } else if (id == R.id.parametres) {
-            Intent i = new Intent(AchatsListe2.this, Parametres2.class);
+            Intent i = new Intent(FavorisListe2.this, Parametres2.class);
             startActivity(i);
 
         }

@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.robin.appliprojet.activity.AchatsListe2;
+import com.example.robin.appliprojet.activity.FavorisListe2;
 import com.example.robin.appliprojet.activity.Parametres2;
 
 
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
 
         } else if (id == R.id.favoris) {
-            Intent i = new Intent(MainActivity.this, FavorisListe.class);
+            Intent i = new Intent(MainActivity.this, FavorisListe2.class);
             startActivity(i);
         } else if (id == R.id.parametres) {
             Intent i = new Intent(MainActivity.this, Parametres2.class);
