@@ -1,6 +1,7 @@
 package com.example.robin.appliprojet.data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.example.robin.appliprojet.R;
@@ -33,16 +34,29 @@ public class Base {
         this.concerts= new ArrayList<Case>();
         this.favoris= new ArrayList<Case>();
 
-        artistes.add(new Case(R.drawable.yvettehorner, "Yvette Horner", "J\'adrore l\'accordeon"));
-        artistes.add(new Case(R.drawable.didiersuper, "Didier Super", "BouleyLand"));
-        artistes.add(new Case(R.drawable.jeanpaulandre, "Jean Paul Andre", "Golfech magazine"));
-        artistes.add(new Case(R.drawable.mlp, "M.L.P", "BrownieLand"));
-
         String description = new String("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+        String avis=new String("consectetur adipiscing elit");
 
-        salles.add(new Case(R.drawable.bikini, "Le Bikini", "Ramonville Saint Agne", description));
-        salles.add(new Case(R.drawable.dynamo, "La Dynamo", "Toulouse", description));
-        salles.add(new Case(R.drawable.lephare, "Le Phare", "Toulouse", description));
+        List<String> liste_avis= new ArrayList<String>();
+        liste_avis.add(avis);
+        liste_avis.add(avis);
+        liste_avis.add(avis);
+        liste_avis.add(avis);
+
+        artistes.add(new Case(R.drawable.yvettehorner, "Yvette Horner", "J\'adrore l\'accordeon", description));
+        artistes.add(new Case(R.drawable.didiersuper, "Didier Super", "BouleyLand", description));
+        artistes.add(new Case(R.drawable.jeanpaulandre, "Jean Paul Andre", "Golfech magazine", description));
+        artistes.add(new Case(R.drawable.mlp, "M.L.P", "BrownieLand", description));
+
+        concerts.add(new Case(R.drawable.yvettehorner, "Yvette Horner", "Le Bikini", description));
+        concerts.add(new Case(R.drawable.didiersuper, "Didier Super", "La Dynamo", description));
+        concerts.add(new Case(R.drawable.jeanpaulandre, "Jean Paul Andre", "Le Phare", description));
+        concerts.add(new Case(R.drawable.mlp, "M.L.P", "Le Bikini", description));
+
+
+        salles.add(new Case(R.drawable.bikini, "Le Bikini", "Ramonville Saint Agne", description, liste_avis));
+        salles.add(new Case(R.drawable.dynamo, "La Dynamo", "Toulouse", description, liste_avis));
+        salles.add(new Case(R.drawable.lephare, "Le Phare", "Toulouse", description, liste_avis));
 
     }
 
@@ -62,4 +76,65 @@ public class Base {
     public List<Case> getSalles() {
         return salles;
     }
+
+    public Case rechercheArtiste(String nom)
+    {
+        Case ma_case= this.artistes.get(0);
+
+        for (Case tc : this.artistes)
+        {
+            if (tc.getNom().toLowerCase().equals(nom.toLowerCase()))
+            {
+                ma_case=tc;
+            }
+        }
+
+        return ma_case;
+    }
+
+    public Case rechercheConcert(String nom)
+    {
+        Case ma_case= this.concerts.get(0);
+
+        for (Case tc : this.concerts)
+        {
+            if (tc.getNom().toLowerCase().equals(nom.toLowerCase()))
+            {
+                ma_case=tc;
+            }
+        }
+
+        return ma_case;
+    }
+
+    public Case rechercheSalle (String nom)
+    {
+        Case ma_case= this.salles.get(0);
+
+        for (Case tc : this.salles)
+        {
+            if (tc.getNom().toLowerCase().equals(nom.toLowerCase()))
+            {
+                ma_case=tc;
+            }
+        }
+
+        return ma_case;
+    }
+
+    public Case rechercheFavoris (String nom)
+    {
+        Case ma_case= this.favoris.get(0);
+
+        for (Case tc : this.favoris)
+        {
+            if (tc.getNom().toLowerCase().equals(nom.toLowerCase()))
+            {
+                ma_case=tc;
+            }
+        }
+
+        return ma_case;
+    }
+
 }

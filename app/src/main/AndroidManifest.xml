@@ -57,6 +57,14 @@
         <activity
             android:name=".activity.ResultRecherche2"
             android:label="@string/title_activity_result_recherche2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.DetailSalle"
+            android:label="@string/title_activity_detail_salle"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.DetailArtiste"
+            android:label="@string/title_activity_detail_artiste"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

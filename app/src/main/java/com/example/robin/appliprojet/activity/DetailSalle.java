@@ -14,38 +14,35 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.robin.appliprojet.MainActivity;
 import com.example.robin.appliprojet.R;
-import com.example.robin.appliprojet.ResultRecherche;
 import com.example.robin.appliprojet.casee.Case;
-import com.example.robin.appliprojet.casee.CaseAdapter;
-import com.example.robin.appliprojet.casee.OnCaseClickListener;
 import com.example.robin.appliprojet.data.Base;
 
 import java.util.List;
 
-public class ResultRecherche2 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnCaseClickListener {
+public class DetailSalle extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     ListView myListView;
-    private static final String KEY_RECHERCHE = "album_cover";
-    private static final String KEY_TYPE = "album_name";
-    private static final String KEY_AFFICHAGE = "affichage";
+    private static final String KEY_NOM = "album_cover";
+    private static final String KEY_LIEU = "album_name";
 
 
-    public static Intent newIntent(String recherche, String type, Context context){
-        Intent i = new Intent(context, ResultRecherche2.class);
-        i.putExtra(KEY_RECHERCHE, recherche);
-        i.putExtra (KEY_TYPE, type);
-        i.putExtra(KEY_AFFICHAGE,(type.equals("Concert")) ? "Concert: "+recherche : "Salle: "+ recherche);;
+    public static Intent newIntent(Case ma_case, Context context){
+        Intent i = new Intent(context, DetailSalle.class);
+        i.putExtra(KEY_NOM, ma_case.getNom());
+        i.putExtra(KEY_LIEU, ma_case.getText());
         return i;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result_recherche2);
+        setContentView(R.layout.activity_detail_salle);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -68,25 +65,23 @@ public class ResultRecherche2 extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
 
         Intent i = getIntent();
-        String type= new String(i.getStringExtra(KEY_TYPE.toString()));
-        type=type.toLowerCase();
+        Base base = new Base();
+        List<Case> salles= base.getSalles();
 
-        this.setTitle("Recherche "+type+"s");
+        //Case ma_case = salles.get(0);
 
-        myListView = (ListView) findViewById(R.id.list);
-        List<Case> mesCases;
-        if (type.equals("concert"))
-        {
-            mesCases = new Base().getConcerts();
-        }
-        else
-        {
-            mesCases = new Base().getSalles();
-        }
-        CaseAdapter adapter = new CaseAdapter(ResultRecherche2.this, mesCases, this);
-        myListView.setAdapter(adapter);
+        Case ma_case= base.rechercheSalle(i.getStringExtra(KEY_NOM.toString()));
 
-        ((TextView) findViewById(R.id.textView6)).setText(i.getStringExtra(KEY_AFFICHAGE.toString()));
+        this.setTitle(ma_case.getNom());
+        ((ImageView) findViewById(R.id.img)).setImageResource(ma_case.getImage());
+        ((TextView) findViewById(R.id.textView8)).setText(ma_case.getDescription());
+
+
+
+
+        ListView listview= (ListView) findViewById(R.id.list);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ma_case.getAvis());
+        listview.setAdapter(adapter);
     }
 
     @Override
@@ -102,7 +97,7 @@ public class ResultRecherche2 extends AppCompatActivity implements NavigationVie
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.result_recherche2, menu);
+        getMenuInflater().inflate(R.menu.detail_salle, menu);
         return true;
     }
 
@@ -128,37 +123,23 @@ public class ResultRecherche2 extends AppCompatActivity implements NavigationVie
         int id = item.getItemId();
 
         if (id == R.id.recherche) {
-            Intent i = new Intent(ResultRecherche2.this, Recherche2.class);
+            Intent i = new Intent(DetailSalle.this, Recherche2.class);
             startActivity(i);
         } else if (id == R.id.achats) {
-            Intent i = new Intent(ResultRecherche2.this, AchatsListe2.class);
+            Intent i = new Intent(DetailSalle.this, AchatsListe2.class);
             startActivity(i);
 
         } else if (id == R.id.favoris) {
-            Intent i = new Intent(ResultRecherche2.this, FavorisListe2.class);
+            Intent i = new Intent(DetailSalle.this, FavorisListe2.class);
             startActivity(i);
         } else if (id == R.id.parametres) {
-            Intent i = new Intent(ResultRecherche2.this, Parametres2.class);
+            Intent i = new Intent(DetailSalle.this, Parametres2.class);
             startActivity(i);
 
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-
-    public void onCaseClick(Case ma_case) {
-        Intent i = getIntent();
-        if (i.getStringExtra(KEY_TYPE.toString()).equals("concert"))
-        {
-
-        }
-        else
-        {
-            startActivity(DetailSalle.newIntent(ma_case, this));
-        }
     }
 }

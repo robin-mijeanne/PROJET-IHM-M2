@@ -15,4 +15,6 @@
     <string name="title_activity_favoris_liste2">FavorisListe2</string>
     <string name="title_activity_recherche2">Recherche2</string>
     <string name="title_activity_result_recherche2">ResultRecherche2</string>
+    <string name="title_activity_detail_salle">DetailSalle</string>
+    <string name="title_activity_detail_artiste">DetailArtiste</string>
 </resources>
