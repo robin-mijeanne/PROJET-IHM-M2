@@ -161,7 +161,7 @@ public class ResultRecherche2 extends AppCompatActivity implements NavigationVie
         Intent i = getIntent();
         if (i.getStringExtra(KEY_TYPE.toString()).toLowerCase().equals("concert"))
         {
-
+            startActivity(DetailRechercheConcert.newIntent(ma_case, this));
         }
         else
         {
