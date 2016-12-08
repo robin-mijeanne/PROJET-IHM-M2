@@ -13,4 +13,69 @@
     tools:context="com.example.robin.appliprojet.activity.ConfirmationAchat"
     tools:showIn="@layout/app_bar_confirmation_achat">
 
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="73dp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/textView8"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="38dp" />
+
+    <TextView
+        android:text="Nombre de places:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView8"
+        android:layout_alignLeft="@+id/img"
+        android:layout_alignStart="@+id/img"
+        android:layout_marginTop="98dp"
+        android:id="@+id/textView11" />
+
+    <Spinner
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/spinner"
+        android:layout_marginTop="57dp"
+        android:layout_below="@+id/textView8"
+        android:layout_alignRight="@+id/textView8"
+        android:layout_alignEnd="@+id/textView8"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp" />
+
+    <Button
+        android:text="Confirmer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView12"
+        android:layout_alignRight="@+id/spinner"
+        android:layout_alignEnd="@+id/spinner"
+        android:layout_marginTop="11dp"
+        android:id="@+id/button6" />
+
+    <TextView
+        android:text="Prix"
+        android:textSize="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:id="@+id/textView12"
+        android:layout_below="@+id/textView11"
+        android:layout_centerHorizontal="true" />
+
+
 </RelativeLayout>

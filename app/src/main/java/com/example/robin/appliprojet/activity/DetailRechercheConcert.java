@@ -61,7 +61,8 @@ public class DetailRechercheConcert extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        final Button bt3 = (Button) findViewById(R.id.button3);
+        bt3.setEnabled(true);
         final Button bt4 = (Button) findViewById(R.id.button4);
         bt4.setEnabled(true);
         final Button bt5 = (Button) findViewById(R.id.button5);
@@ -77,6 +78,14 @@ public class DetailRechercheConcert extends AppCompatActivity
         ((ImageView) findViewById(R.id.img)).setImageResource(ma_case.getImage());
         ((TextView) findViewById(R.id.textView8)).setText(ma_case.getDescription());
         ((TextView) findViewById(R.id.textView9)).setText(Integer.toString(ma_case.getPrix())+" €");
+
+        bt3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                startActivity(ConfirmationAchat.newIntent(ma_case, bt3.getContext()));
+            }
+        });
 
         bt4.setOnClickListener(new View.OnClickListener()
         {
