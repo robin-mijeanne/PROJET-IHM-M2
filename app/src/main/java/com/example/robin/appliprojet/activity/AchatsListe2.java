@@ -19,12 +19,17 @@ import android.widget.ListView;
 import com.example.robin.appliprojet.FavorisListe;
 import com.example.robin.appliprojet.R;
 import com.example.robin.appliprojet.Recherche;
+import com.example.robin.appliprojet.casee.Case;
+import com.example.robin.appliprojet.casee.CaseAdapter;
+import com.example.robin.appliprojet.casee.OnCaseClickListener;
+import com.example.robin.appliprojet.data.Base;
+
+import java.util.List;
 
 public class AchatsListe2 extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
-    String[] noms_onglets= new String[] {"ABC", "DEF", "GHI"};
-
+        implements NavigationView.OnNavigationItemSelectedListener, OnCaseClickListener {
+    
+    ListView myListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +55,16 @@ public class AchatsListe2 extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ListView listview= (ListView) findViewById(R.id.list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noms_onglets);
-        listview.setAdapter(adapter);
+      //  ListView listview= (ListView) findViewById(R.id.list);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noms_onglets);
+        //listview.setAdapter(adapter);
 
         this.setTitle("Mes Achats");
+
+        myListView = (ListView) findViewById(R.id.list);
+        List<Case> mesCases= new Base().getAchats();
+        CaseAdapter adapter = new CaseAdapter(AchatsListe2.this, mesCases, this);
+        myListView.setAdapter(adapter);
     }
 
     @Override
@@ -114,5 +124,10 @@ public class AchatsListe2 extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onCaseClick(Case ma_case)
+    {
+        startActivity(DetailArtiste.newIntent(ma_case, this));
     }
 }

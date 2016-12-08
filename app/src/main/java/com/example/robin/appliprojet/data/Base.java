@@ -26,6 +26,7 @@ public class Base {
     private List<Case> salles= new ArrayList<Case>();
     private List<Case> concerts= new ArrayList<Case>();
     private List<Case> favoris= new ArrayList<Case>();
+    private List<Case> achats= new ArrayList<Case>();
 
     public Base()
     {
@@ -33,6 +34,7 @@ public class Base {
         this.salles= new ArrayList<Case>();
         this.concerts= new ArrayList<Case>();
         this.favoris= new ArrayList<Case>();
+        this.achats= new ArrayList<Case>();
 
         String description = new String("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
         String avis=new String("consectetur adipiscing elit");
@@ -60,6 +62,9 @@ public class Base {
 
         favoris.add(new Case(R.drawable.didiersuper, "Didier Super", "BouleyLand", description));
         favoris.add(new Case(R.drawable.jeanpaulandre, "Jean Paul Andre", "Golfech magazine", description));
+
+        achats.add(new Case(R.drawable.didiersuper, "Didier Super", "La Dynamo", description, 30));
+        achats.add(new Case(R.drawable.didiersuper, "Didier Super", "La Dynamo", description, 30));
     }
 
     public List<Case> getArtistes()
@@ -78,6 +83,8 @@ public class Base {
     public List<Case> getSalles() {
         return salles;
     }
+
+    public List<Case> getAchats() { return achats; }
 
     public Case rechercheArtiste(String nom)
     {
