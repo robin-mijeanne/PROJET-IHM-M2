@@ -1,5 +1,7 @@
 package com.example.robin.appliprojet.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,9 +14,35 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class Don extends AppCompatActivity
+import com.example.robin.appliprojet.R;
+import com.example.robin.appliprojet.casee.Case;
+import com.example.robin.appliprojet.data.Base;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ConfirmationDon extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final String KEY_NOM = "album_cover";
+    private static final String KEY_LIEU = "album_name";
+
+
+    public static Intent newIntent(Case ma_case, Context context){
+        Intent i = new Intent(context, ConfirmationDon.class);
+        i.putExtra(KEY_NOM, ma_case.getNom());
+        i.putExtra(KEY_LIEU, ma_case.getText());
+        return i;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +68,35 @@ public class Don extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Fenetre
+        this.setTitle("Donner");
+
+        //Bouton
+        final Button bt6 = (Button) findViewById(R.id.button6);
+        bt6.setEnabled(true);
+
+        //Textsaisie
+        final EditText saisie = (EditText) findViewById(R.id.editText7);
+
+        //Recherche case
+        Intent i = this.getIntent();
+        final Case ma_case= new Base().rechercheConcert(i.getStringExtra(KEY_NOM.toString()));
+
+        //Image
+        ((ImageView) findViewById(R.id.img)).setImageResource(ma_case.getImage());
+
+        //Text
+        ((TextView) findViewById(R.id.textView8)).setText(ma_case.getDescription());
+
+
+        bt6.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(bt6.getContext(), "Don à "+saisie.getText().toString()+" OK", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -80,19 +137,22 @@ public class Don extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.recherche) {
+            Intent i = new Intent(ConfirmationDon.this, Recherche2.class);
+            startActivity(i);
+        } else if (id == R.id.achats) {
+            Intent i = new Intent(ConfirmationDon.this, AchatsListe2.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.favoris) {
+            Intent i = new Intent(ConfirmationDon.this, FavorisListe2.class);
+            startActivity(i);
+        } else if (id == R.id.parametres) {
+            Intent i = new Intent(ConfirmationDon.this, Parametres2.class);
+            startActivity(i);
 
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

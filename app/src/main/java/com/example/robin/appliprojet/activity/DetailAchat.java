@@ -87,6 +87,14 @@ public class DetailAchat extends AppCompatActivity
                 Toast.makeText(bt5.getContext(), "Achat Annulé", Toast.LENGTH_SHORT).show();
             }
         });
+        bt4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                startActivity(ConfirmationDon.newIntent(ma_case, bt4.getContext()));
+            }
+        });
+
     }
 
     @Override

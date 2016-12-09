@@ -79,7 +79,7 @@
             android:label="@string/title_activity_detail_achat"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.Don"
+            android:name=".activity.ConfirmationDon"
             android:label="@string/title_activity_don"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
