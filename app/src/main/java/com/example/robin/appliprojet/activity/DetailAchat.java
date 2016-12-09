@@ -1,5 +1,6 @@
 package com.example.robin.appliprojet.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,27 +14,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.robin.appliprojet.FavorisListe;
 import com.example.robin.appliprojet.R;
-import com.example.robin.appliprojet.Recherche;
 import com.example.robin.appliprojet.casee.Case;
-import com.example.robin.appliprojet.casee.CaseAdapter;
-import com.example.robin.appliprojet.casee.OnCaseClickListener;
 import com.example.robin.appliprojet.data.Base;
 
-import java.util.List;
+public class DetailAchat extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
+    private static final String KEY_NOM = "album_cover";
+    private static final String KEY_LIEU = "album_name";
 
-public class AchatsListe2 extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, OnCaseClickListener {
 
-    ListView myListView;
+    public static Intent newIntent(Case ma_case, Context context){
+        Intent i = new Intent(context, DetailAchat.class);
+        i.putExtra(KEY_NOM, ma_case.getNom());
+        i.putExtra(KEY_LIEU, ma_case.getText());
+        return i;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_achats_liste2);
+        setContentView(R.layout.activity_detail_achat);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -55,16 +60,33 @@ public class AchatsListe2 extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-      //  ListView listview= (ListView) findViewById(R.id.list);
-        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noms_onglets);
-        //listview.setAdapter(adapter);
+        //Fenetre
+        this.setTitle("Detail Achat");
 
-        this.setTitle("Mes Achats");
+        //Boutons
+        final Button bt4 = (Button) findViewById(R.id.button4);
+        bt4.setEnabled(true);
+        final Button bt5 = (Button) findViewById(R.id.button5);
+        bt5.setEnabled(true);
 
-        myListView = (ListView) findViewById(R.id.list);
-        List<Case> mesCases= new Base().getAchats();
-        CaseAdapter adapter = new CaseAdapter(AchatsListe2.this, mesCases, this);
-        myListView.setAdapter(adapter);
+        //Recherche case
+        Intent i = this.getIntent();
+        final Case ma_case= new Base().rechercheConcert(i.getStringExtra(KEY_NOM.toString()));
+
+        //Image
+        ((ImageView) findViewById(R.id.img)).setImageResource(ma_case.getImage());
+
+        //Text
+        ((TextView) findViewById(R.id.textView8)).setText(ma_case.getDescription());
+        ((TextView) findViewById(R.id.textView10)).setText(ma_case.getText());
+
+        bt5.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(bt5.getContext(), "Achat Annulé", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -80,7 +102,7 @@ public class AchatsListe2 extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.achats_liste2, menu);
+        getMenuInflater().inflate(R.menu.detail_achat, menu);
         return true;
     }
 
@@ -106,28 +128,22 @@ public class AchatsListe2 extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.recherche) {
-            Intent i = new Intent(AchatsListe2.this, Recherche2.class);
+            Intent i = new Intent(DetailAchat.this, Recherche2.class);
             startActivity(i);
         } else if (id == R.id.achats) {
-            Intent i = new Intent(AchatsListe2.this, AchatsListe2.class);
+            Intent i = new Intent(DetailAchat.this, AchatsListe2.class);
             startActivity(i);
 
         } else if (id == R.id.favoris) {
-            Intent i = new Intent(AchatsListe2.this, FavorisListe2.class);
+            Intent i = new Intent(DetailAchat.this, FavorisListe2.class);
             startActivity(i);
         } else if (id == R.id.parametres) {
-            Intent i = new Intent(AchatsListe2.this, Parametres2.class);
+            Intent i = new Intent(DetailAchat.this, Parametres2.class);
             startActivity(i);
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    public void onCaseClick(Case ma_case)
-    {
-        startActivity(DetailAchat.newIntent(ma_case, this));
     }
 }

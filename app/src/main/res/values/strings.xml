@@ -19,4 +19,6 @@
     <string name="title_activity_detail_artiste">DetailArtiste</string>
     <string name="title_activity_detail_recherche_concert">DetailRechercheConcert</string>
     <string name="title_activity_confirmation_achat">ConfirmationAchat</string>
+    <string name="title_activity_detail_achat">DetailAchat</string>
+    <string name="title_activity_don">Don</string>
 </resources>
