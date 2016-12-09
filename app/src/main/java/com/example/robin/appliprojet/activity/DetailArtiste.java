@@ -15,8 +15,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.Interpolator;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.robin.appliprojet.R;
 import com.example.robin.appliprojet.casee.Case;
@@ -63,11 +65,24 @@ public class DetailArtiste extends AppCompatActivity
 
         Intent i = getIntent();
         Base base = new Base();
-        Case ma_case= base.rechercheArtiste(i.getStringExtra(KEY_NOM.toString()));
+        final Case ma_case= base.rechercheArtiste(i.getStringExtra(KEY_NOM.toString()));
 
         this.setTitle(ma_case.getNom());
         ((ImageView) findViewById(R.id.img)).setImageResource(ma_case.getImage());
         ((TextView) findViewById(R.id.textView8)).setText(ma_case.getDescription());
+
+        //Bouton
+        final Button bt3 = (Button) findViewById(R.id.button3);
+        bt3.setEnabled(true);
+
+        bt3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(bt3.getContext(), ma_case.getNom()+" ajouté aux favoris", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

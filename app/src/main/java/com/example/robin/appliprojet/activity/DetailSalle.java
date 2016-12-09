@@ -15,9 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.robin.appliprojet.R;
 import com.example.robin.appliprojet.casee.Case;
@@ -65,23 +68,39 @@ public class DetailSalle extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         Intent i = getIntent();
-        Base base = new Base();
+        final Base base = new Base();
         List<Case> salles= base.getSalles();
 
         //Case ma_case = salles.get(0);
 
-        Case ma_case= base.rechercheSalle(i.getStringExtra(KEY_NOM.toString()));
+        final Case ma_case= base.rechercheSalle(i.getStringExtra(KEY_NOM.toString()));
 
         this.setTitle(ma_case.getNom());
         ((ImageView) findViewById(R.id.img)).setImageResource(ma_case.getImage());
         ((TextView) findViewById(R.id.textView8)).setText(ma_case.getDescription());
 
 
-
-
         ListView listview= (ListView) findViewById(R.id.list);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ma_case.getAvis());
         listview.setAdapter(adapter);
+
+        //Bouton
+        final Button bt3 = (Button) findViewById(R.id.button3);
+        bt3.setEnabled(true);
+
+        //Saisie
+        final EditText saisie = (EditText) findViewById(R.id.editText6);
+
+        bt3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+
+                ma_case.getAvis().add("Charles: "+ saisie.getText().toString());
+                Toast.makeText(bt3.getContext(), "Commentaire posté", Toast.LENGTH_SHORT).show();
+                startActivity(DetailSalle.newIntent(ma_case, bt3.getContext()));
+            }
+        });
     }
 
     @Override

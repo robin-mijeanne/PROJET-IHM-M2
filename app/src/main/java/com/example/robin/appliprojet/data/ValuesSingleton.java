@@ -1,35 +1,30 @@
 package com.example.robin.appliprojet.data;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import com.example.robin.appliprojet.R;
 import com.example.robin.appliprojet.casee.Case;
-import android.content.Context;
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.ImageView;
-import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by robin on 28/11/16.
+ * Created by robin on 09/12/16.
  */
 
-public class Base {
+public class ValuesSingleton {
+    private static ValuesSingleton ourInstance = new ValuesSingleton();
+    private static String TAG = "ValuesSingleton";
+
+    public static ValuesSingleton getInstance() {
+        return ourInstance;
+    }
+
     private List<Case> artistes= new ArrayList<Case>();
     private List<Case> salles= new ArrayList<Case>();
     private List<Case> concerts= new ArrayList<Case>();
     private List<Case> favoris= new ArrayList<Case>();
     private List<Case> achats= new ArrayList<Case>();
-    private ValuesSingleton singleton;
 
-    public Base()
+    private ValuesSingleton()
     {
         this.artistes= new ArrayList<Case>();
         this.salles= new ArrayList<Case>();
@@ -66,17 +61,6 @@ public class Base {
 
         achats.add(new Case(R.drawable.didiersuper, "Didier Super", "La Dynamo", description, 30));
         achats.add(new Case(R.drawable.didiersuper, "Didier Super", "La Dynamo", description, 30));
-
-
-
-        //Singleton
-        this.singleton=ValuesSingleton.getInstance();
-
-        this.artistes= this.singleton.getArtistes();
-        this.salles= this.singleton.getSalles();
-        this.concerts= this.singleton.getConcerts();
-        this.favoris= this.singleton.getFavoris();
-        this.achats= this.singleton.getAchats();
     }
 
     public List<Case> getArtistes()
@@ -157,5 +141,4 @@ public class Base {
 
         return ma_case;
     }
-
 }
