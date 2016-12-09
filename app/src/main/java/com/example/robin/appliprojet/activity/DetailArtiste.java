@@ -64,7 +64,7 @@ public class DetailArtiste extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         Intent i = getIntent();
-        Base base = new Base();
+        final Base base = new Base();
         final Case ma_case= base.rechercheArtiste(i.getStringExtra(KEY_NOM.toString()));
 
         this.setTitle(ma_case.getNom());
@@ -79,7 +79,7 @@ public class DetailArtiste extends AppCompatActivity
         {
             @Override
             public void onClick(View view) {
-
+                base.getFavoris().add(ma_case);
                 Toast.makeText(bt3.getContext(), ma_case.getNom()+" ajouté aux favoris", Toast.LENGTH_SHORT).show();
             }
         });

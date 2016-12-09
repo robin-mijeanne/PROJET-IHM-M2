@@ -71,7 +71,8 @@ public class DetailAchat extends AppCompatActivity
 
         //Recherche case
         Intent i = this.getIntent();
-        final Case ma_case= new Base().rechercheConcert(i.getStringExtra(KEY_NOM.toString()));
+        final Base base=new Base();
+        final Case ma_case= base.rechercheConcert(i.getStringExtra(KEY_NOM.toString()));
 
         //Image
         ((ImageView) findViewById(R.id.img)).setImageResource(ma_case.getImage());
@@ -84,7 +85,11 @@ public class DetailAchat extends AppCompatActivity
         {
             @Override
             public void onClick(View view) {
+                base.getAchats().remove(0);
                 Toast.makeText(bt5.getContext(), "Achat Annulé", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(DetailAchat.this, AchatsListe2.class);
+                startActivity(i);
+
             }
         });
         bt4.setOnClickListener(new View.OnClickListener()
