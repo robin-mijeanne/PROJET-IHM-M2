@@ -28,7 +28,7 @@ import java.util.List;
 
 public class AchatsListe2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnCaseClickListener {
-    
+
     ListView myListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

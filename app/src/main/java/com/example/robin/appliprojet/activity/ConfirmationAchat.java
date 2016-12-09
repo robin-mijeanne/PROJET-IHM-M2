@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.robin.appliprojet.R;
 import com.example.robin.appliprojet.casee.Case;
@@ -69,6 +70,10 @@ public class ConfirmationAchat extends AppCompatActivity
         //Generer fenetre
         this.setTitle("Confirmation achat");
 
+        //Bouton
+        final Button bt6 = (Button) findViewById(R.id.button6);
+        bt6.setEnabled(true);
+
         //Recherche case
         Intent i = this.getIntent();
         final Case ma_case= new Base().rechercheConcert(i.getStringExtra(KEY_NOM.toString()));
@@ -105,6 +110,14 @@ public class ConfirmationAchat extends AppCompatActivity
                }
 
        );
+
+        bt6.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(bt6.getContext(), "Paiement de "+ma_case.getPrix()*(Integer.parseInt(monSpinner.getSelectedItem().toString()))+"€ OK", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
