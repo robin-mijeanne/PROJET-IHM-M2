@@ -81,6 +81,10 @@
         <activity
             android:name=".activity.ConfirmationDon"
             android:label="@string/title_activity_don"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.Accueil"
+            android:label="@string/title_activity_accueil"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

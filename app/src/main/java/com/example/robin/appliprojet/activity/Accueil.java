@@ -1,6 +1,5 @@
-package com.example.robin.appliprojet;
+package com.example.robin.appliprojet.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,24 +12,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.robin.appliprojet.activity.AchatsListe2;
-import com.example.robin.appliprojet.activity.FavorisListe2;
-import com.example.robin.appliprojet.activity.Parametres2;
-import com.example.robin.appliprojet.activity.Recherche2;
-import com.example.robin.appliprojet.activity.ResultRecherche2;
+import com.example.robin.appliprojet.R;
 
-
-public class MainActivity extends AppCompatActivity
+public class Accueil extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_accueil);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -51,33 +42,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        this.setTitle("Places Dealer");
-
-        //Bouton
-        final Button bt8 = (Button) findViewById(R.id.button8);
-        bt8.setEnabled(true);
-
-        //MDP
-        //Textsaisie
-        final EditText mdp = (EditText) findViewById(R.id.editText12);
-
-        bt8.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-
-                if (!mdp.getText().toString().toLowerCase().equals("aaa"))
-                {
-                    Toast.makeText(bt8.getContext(), "Erreur mot de passe, veuillez reessayer", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Intent i = new Intent(MainActivity.this, Recherche2.class);
-                    startActivity(i);
-                }
-            }
-        });
     }
 
     @Override
@@ -93,7 +57,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.accueil, menu);
         return true;
     }
 
@@ -118,9 +82,18 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.inscription) {
-            Intent i = new Intent(MainActivity.this, Parametres2.class);
-            startActivity(i);
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
+
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
