@@ -54,6 +54,7 @@ public class DetailArtiste extends AppCompatActivity
     }
 
     @Override
+    //Couche presentation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_artiste);
@@ -78,6 +79,7 @@ public class DetailArtiste extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //Couche gestion du dialogue
         Intent i = getIntent();
         final Base base = new Base();
         final Case ma_case= base.rechercheArtiste(i.getStringExtra(KEY_NOM.toString()));

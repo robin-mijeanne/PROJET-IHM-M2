@@ -60,6 +60,7 @@ public class ConfirmationDon extends AppCompatActivity
     }
 
     @Override
+    //Couche présentation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_don);
@@ -106,6 +107,7 @@ public class ConfirmationDon extends AppCompatActivity
         ((TextView) findViewById(R.id.textView8)).setText(ma_case.getDescription());
 
 
+        //Couche gestion du dialogue
         bt6.setOnClickListener(new View.OnClickListener()
         {
             @Override

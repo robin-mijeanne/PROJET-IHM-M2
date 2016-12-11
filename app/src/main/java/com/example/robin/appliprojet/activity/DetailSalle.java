@@ -58,6 +58,7 @@ public class DetailSalle extends AppCompatActivity
         return i;
     }
     @Override
+    //Couche presentation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_salle);
@@ -82,11 +83,10 @@ public class DetailSalle extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //Couche gestion du dialogue
         Intent i = getIntent();
         final Base base = new Base();
         List<Case> salles= base.getSalles();
-
-        //Case ma_case = salles.get(0);
 
         final Case ma_case= base.rechercheSalle(i.getStringExtra(KEY_NOM.toString()));
 

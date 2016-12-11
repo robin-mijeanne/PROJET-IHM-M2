@@ -3,7 +3,7 @@
  *
  *
  * @description  Classe implémentant la vue modification des parametres de l'application
- * @seeheim Implémente la couche présentation et gestion du dialogue
+ * @seeheim Implémente la couche présentation et gestion du dialogue si le backend etait reel
  * .
  *
  *
@@ -39,6 +39,7 @@ import com.example.robin.appliprojet.Recherche;
 public class Parametres2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //Couche presentation
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

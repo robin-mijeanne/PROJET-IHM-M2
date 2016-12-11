@@ -37,6 +37,7 @@ import com.example.robin.appliprojet.R;
 public class Inscription extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //Couche presentation
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +62,8 @@ public class Inscription extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Couche gestion du dialogue
 
         //Fenetre
         this.setTitle("Inscription");

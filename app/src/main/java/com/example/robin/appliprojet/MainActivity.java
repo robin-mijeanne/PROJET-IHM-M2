@@ -43,6 +43,8 @@ import com.example.robin.appliprojet.activity.ResultRecherche2;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    //Couche presentation
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+        //Couche gestion du dialogue
         this.setTitle("Places Dealer");
 
         //Bouton

@@ -47,6 +47,8 @@ public class FavorisListe2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnCaseClickListener {
 
     ListView myListView;
+
+    //Couche gestion du dialogue
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +74,8 @@ public class FavorisListe2 extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+        //Couche gestion du dialogue
         this.setTitle("Mes Favoris");
 
         myListView = (ListView) findViewById(R.id.list);

@@ -59,6 +59,8 @@ public class ConfirmationAchat extends AppCompatActivity
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Couche présentation
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation_achat);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -81,6 +83,8 @@ public class ConfirmationAchat extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Couche gestion du dialogue
 
         //Generer fenetre
         this.setTitle("Confirmation achat");

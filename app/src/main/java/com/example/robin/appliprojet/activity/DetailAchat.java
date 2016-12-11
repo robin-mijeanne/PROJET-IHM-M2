@@ -52,6 +52,7 @@ public class DetailAchat extends AppCompatActivity
         return i;
     }
     @Override
+    //Couche presentation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_achat);
@@ -76,6 +77,7 @@ public class DetailAchat extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //Couche gestion du dialogue
         //Fenetre
         this.setTitle("Detail Achat");
 

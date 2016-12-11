@@ -57,6 +57,8 @@ public class ResultRecherche2 extends AppCompatActivity implements NavigationVie
         i.putExtra(KEY_AFFICHAGE,("Mots clés: "+recherche));;
         return i;
     }
+
+    //Couche presentation
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +88,8 @@ public class ResultRecherche2 extends AppCompatActivity implements NavigationVie
         String type= new String(i.getStringExtra(KEY_TYPE.toString()));
         type=type.toLowerCase();
 
+
+        //Couche gestion du dialogue
         this.setTitle("Recherche "+type+"s");
 
         myListView = (ListView) findViewById(R.id.list);

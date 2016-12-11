@@ -41,6 +41,7 @@ public class Recherche2 extends AppCompatActivity
 
     Spinner monSpinner;
 
+    //Couche presentation
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +67,7 @@ public class Recherche2 extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //Couche gestion du dialogue
         this.setTitle("Recherche");
 
         //Récupération du Spinner déclaré dans le fichier main.xml de res/layout

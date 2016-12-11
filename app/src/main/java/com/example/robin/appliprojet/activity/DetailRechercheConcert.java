@@ -52,6 +52,7 @@ public class DetailRechercheConcert extends AppCompatActivity
     }
 
     @Override
+    //Couche presentation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_recherche_concert);
@@ -76,6 +77,7 @@ public class DetailRechercheConcert extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //Couche gestion du dialogue
         final Button bt3 = (Button) findViewById(R.id.button3);
         bt3.setEnabled(true);
         final Button bt4 = (Button) findViewById(R.id.button4);
