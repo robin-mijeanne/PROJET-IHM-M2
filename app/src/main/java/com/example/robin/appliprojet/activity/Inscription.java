@@ -1,3 +1,18 @@
+/**
+ * Projet IHM
+ *
+ *
+ * @description  Classe implémentant la vue Inscription de l'application
+ * @seeheim Implémente la couche présentation et gestion du dialogue
+ * .
+ *
+ *
+ * @version 1.0
+ * @author Robin Degironde
+ * @author Charles Banquet
+ * @class Inscription
+ */
+
 package com.example.robin.appliprojet.activity;
 
 import android.content.Intent;

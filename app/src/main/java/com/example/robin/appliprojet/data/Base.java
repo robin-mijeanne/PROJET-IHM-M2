@@ -1,3 +1,18 @@
+/**
+ * Projet IHM
+ *
+ *
+ * @description  Classe implémentant la gestion des données de l'application
+ * @seeheim Implémente la couche modele d interfacage
+ * .
+ *
+ *
+ * @version 1.0
+ * @author Robin Degironde
+ * @author Charles Banquet
+ * @class Base
+ */
+
 package com.example.robin.appliprojet.data;
 
 import java.util.ArrayList;

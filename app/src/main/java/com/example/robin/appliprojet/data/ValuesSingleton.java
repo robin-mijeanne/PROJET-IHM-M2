@@ -1,3 +1,18 @@
+/**
+ * Projet IHM
+ *
+ *
+ * @description  Classe implémentant l'appovision et la garde en mémoire des données dans l'application
+ * @seeheim Implémente la couche modele d interfacage
+ * .
+ *
+ *
+ * @version 1.0
+ * @author Robin Degironde
+ * @author Charles Banquet
+ * @class ValuesSingleton
+ */
+
 package com.example.robin.appliprojet.data;
 
 import com.example.robin.appliprojet.R;

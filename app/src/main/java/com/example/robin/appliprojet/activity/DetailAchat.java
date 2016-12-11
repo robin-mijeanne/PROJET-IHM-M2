@@ -1,3 +1,19 @@
+/**
+ * Projet IHM
+ *
+ *
+ * @description  Classe implémentant la vue DetailAchat de l'application
+ * @seeheim Implémente la couche présentation et gestion du dialogue
+ * .
+ *
+ *
+ * @version 1.0
+ * @author Robin Degironde
+ * @author Charles Banquet
+ * @class DetailAchat
+ */
+
+
 package com.example.robin.appliprojet.activity;
 
 import android.content.Context;

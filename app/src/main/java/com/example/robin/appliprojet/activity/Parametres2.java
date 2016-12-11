@@ -1,3 +1,18 @@
+/**
+ * Projet IHM
+ *
+ *
+ * @description  Classe implémentant la vue modification des parametres de l'application
+ * @seeheim Implémente la couche présentation et gestion du dialogue
+ * .
+ *
+ *
+ * @version 1.0
+ * @author Robin Degironde
+ * @author Charles Banquet
+ * @class Parametres
+ */
+
 package com.example.robin.appliprojet.activity;
 
 import android.content.Intent;

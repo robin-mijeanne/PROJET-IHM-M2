@@ -1,3 +1,18 @@
+/**
+ * Projet IHM
+ *
+ *
+ * @description  Classe implémentant la vue résultats de recherche de l'application
+ * @seeheim Implémente la couche présentation et gestion du dialogue
+ * .
+ *
+ *
+ * @version 1.0
+ * @author Robin Degironde
+ * @author Charles Banquet
+ * @class ResultRecherche
+ */
+
 package com.example.robin.appliprojet.activity;
 
 import android.content.Context;

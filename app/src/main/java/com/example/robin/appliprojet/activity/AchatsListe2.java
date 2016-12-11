@@ -1,3 +1,18 @@
+/**
+ * Projet IHM
+ *
+ *
+ * @description  Classe implémentant la vue de la liste des achats
+ * @seeheim Implémente la couche présentation et gestion du dialogue
+ * .
+ *
+ *
+ * @version 1.0
+ * @author Robin Degironde
+ * @author Charles Banquet
+ * @class achatsListe
+ */
+
 package com.example.robin.appliprojet.activity;
 
 import android.content.Intent;
